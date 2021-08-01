@@ -20,7 +20,7 @@ async function load(repo, dryrun) {
     dbrepo.icon = meta.icon + "" || "https://via.placeholder.com/57";
     if (!dryrun) {
       db.repos.push(dbrepo);
-      let packages = await (await fetch(repo + "/packages.txt")).json();
+      let packages = await (await fetch(repo + "/packages.json")).json();
       for (let pakage of packages) {
         let dbpackage = {};
         dbpackage.id = pakage.id + "";
