@@ -9,7 +9,7 @@ arch = arch ? "ios" + arch : "ios99999999999999999999";
 db.repos = [];
 db.packages = [];
 async function load(repo, dryrun) {
-  let meta = await (await fetch(repo + "meta.json")).json();
+  let meta = await (await fetch(repo + "/meta.json")).json();
   if (meta.id && meta.name) {
     let dbrepo = {};
     dbrepo.url = repo;
@@ -20,7 +20,7 @@ async function load(repo, dryrun) {
     dbrepo.icon = meta.icon + "" || "https://via.placeholder.com/57";
     if (!dryrun) {
       db.repos.push(dbrepo);
-      let packages = await (await fetch(repo + "packages.json")).json();
+      let packages = await (await fetch(repo + "/packages.json")).json();
       for (let pakage of packages) {
         let dbpackage = {};
         dbpackage.id = pakage.id + "";
