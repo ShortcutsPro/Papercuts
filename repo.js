@@ -103,7 +103,7 @@ export async function init() {
   db.repos = [];
   db.packages = [];
   sources = JSON.parse(
-    localStorage.getItem("sources") || '["https://easrng.github.io/papercuts-repo/"]'
+    localStorage.getItem("sources") || '["https://shortcutspro.github.io/papercuts-repo/"]'
   );
   await Promise.all(sources.map(e => load(e)));
 }
